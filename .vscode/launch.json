@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-leetcode}",
+            "name": "Debug MyAlgorithms",
+            "program": "${workspaceFolder:swift-leetcode}/.build/debug/MyAlgorithms",
+            "preLaunchTask": "swift: Build Debug MyAlgorithms"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-leetcode}",
+            "name": "Release MyAlgorithms",
+            "program": "${workspaceFolder:swift-leetcode}/.build/release/MyAlgorithms",
+            "preLaunchTask": "swift: Build Release MyAlgorithms"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Generate LeetCode Problem",
+      "type": "shell",
+      "command": "swift run MyAlgorithms ${input:problemID} ${input:funcName}",
+      "problemMatcher": [],
+      "group": "build",
+      "presentation": {
+        "reveal": "always"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "problemID",
+      "type": "promptString",
+      "description": "Enter LeetCode problem ID (e.g. 75)",
+      "default": "75"
+    },
+    {
+      "id": "funcName",
+      "type": "promptString",
+      "description": "Enter function name (e.g. increasingTriplet)",
+      "default": "increasingTriplet"
+    }
+  ]
+}
