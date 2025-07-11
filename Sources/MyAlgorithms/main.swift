@@ -48,7 +48,7 @@ let algTemplate = """
 // LeetCode Problem \(number)
 /*
 */
-func \(funcName)() {
+public func \(funcName)() {
     // TODO: Implement solution
 }
 """
@@ -74,6 +74,7 @@ final class Q\(number)Tests: XCTestCase {
 
 let testSwiftTemplate = """
 import Testing
+import MyAlgorithms
 
 @Test func \(testFuncName)() {
   // Test logic goes here.

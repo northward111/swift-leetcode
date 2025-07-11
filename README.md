@@ -4,5 +4,9 @@ This repository is solely for leetcode practices. Every problem is solved in a s
 
 # To add one algorithm implementation
 ```
-swift run MyAlgorithms
+run the task named "Generate LeetCode Problem"
 ```
+
+# Test cases not auto-detected?
+
+This is a known issue with VSCode itself. Just reload window from the command palette and it would be fine.
