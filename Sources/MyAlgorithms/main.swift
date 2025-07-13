@@ -16,24 +16,33 @@ let testDir = "Tests/MyAlgorithmsSwiftTesting"
 // Check if arguments are passed via CLI
 let args = CommandLine.arguments
 
-let (number, rawFuncName): (String, String) = {
+let (number, rawFuncSignature): (String, String) = {
     if args.count >= 3 {
         return (args[1], args[2])
     } else {
         let num = prompt("Enter LeetCode problem number:")
-        let name = prompt("Enter function name (e.g., canPlaceFlowers):")
-        return (num, name)
+        let signature = prompt("Enter function signature (e.g., canPlaceFlowers(_ flowerbed: [Int], _ n: Int) -> Bool:")
+        return (num, signature)
     }
 }()
 
-var funcName = "Q\(number)" + rawFuncName.prefix(1).uppercased() + rawFuncName.dropFirst()
+guard let leftParenthesisIndex = rawFuncSignature.firstIndex(of: "(") else{
+    print("❌ Please enter a valid function signature.")
+    exit(1)
+}
+let rawFuncName = rawFuncSignature.prefix(upTo: leftParenthesisIndex)
+let parametersPart = rawFuncSignature.suffix(from: leftParenthesisIndex)
+
+let pascalFuncName = rawFuncName.prefix(1).uppercased() + rawFuncName.dropFirst()
+
+var funcSignature = "q\(number)" + pascalFuncName + parametersPart
 
 guard let _ = Int(number) else {
     print("❌ Please enter a valid number.")
     exit(1)
 }
 
-let testFuncName = "test" + funcName
+let testFuncName = "test" + "Q\(number)" + pascalFuncName
 
 // File names
 let algFile = "Q\(number).swift"
@@ -48,7 +57,7 @@ let algTemplate = """
 // LeetCode Problem \(number)
 /*
 */
-public func \(funcName)() {
+public func \(funcSignature) {
     // TODO: Implement solution
 }
 """
@@ -103,3 +112,19 @@ try? fileManager.createDirectory(atPath: testDir, withIntermediateDirectories: t
 // Write files
 writeFileIfNotExists(path: algPath, content: algTemplate)
 writeFileIfNotExists(path: testPath, content: testSwiftTemplate)
+
+// reload VSCode window to allow the test panel to refresh
+// this is a trick
+// reload VSCode workspace explicitly using the .code-workspace file
+// let scriptDir = URL(fileURLWithPath: #file).deletingLastPathComponent()
+// let projectRoot = scriptDir.deletingLastPathComponent()
+// let process = Process()
+// process.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+// process.arguments = ["code", projectRoot.path, "--reuse-window"]
+
+// do {
+//     try process.run()
+//     process.waitUntilExit()
+// } catch {
+//     print("❌ Failed to reopen folder workspace: \(error)")
+// }

@@ -4,7 +4,7 @@
     {
       "label": "Generate LeetCode Problem",
       "type": "shell",
-      "command": "swift run MyAlgorithms ${input:problemID} ${input:funcName}",
+      "command": "swift run MyAlgorithms ${input:problemID} '${input:funcName}'",
       "problemMatcher": [],
       "group": "build",
       "presentation": {
@@ -22,8 +22,8 @@
     {
       "id": "funcName",
       "type": "promptString",
-      "description": "Enter function name (e.g. increasingTriplet)",
-      "default": "increasingTriplet"
+      "description": "Enter function signature (e.g. maxArea(_ height: [Int]) -> Int)",
+      "default": "maxArea(_ height: [Int]) -> Int"
     }
   ]
 }
