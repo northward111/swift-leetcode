@@ -1,6 +1,7 @@
 import Testing
 import MyAlgorithms
 
-@Test func testQ933DecodeString() {
+@Test func testQ2095DeleteMiddle() {
   // Test logic goes here.
+  #expect("YES" == "NO")
 }
