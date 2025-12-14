@@ -1,0 +1,8 @@
+import Testing
+import MyAlgorithms
+
+@Test func testQ328OddEvenList() {
+  // Test logic goes here.
+  #expect(valArrayFrom(listNodeHead: q328OddEvenList(headFrom(valArray: [1,2,3,4,5]))) == [1,3,5,2,4])
+  #expect(valArrayFrom(listNodeHead: q328OddEvenList(headFrom(valArray: [2,1,3,5,6,4,7]))) == [2,3,6,7,1,5,4])
+}
