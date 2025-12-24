@@ -57,8 +57,8 @@ let algTemplate = """
 // LeetCode Problem \(number)
 /*
 */
-public func \(funcSignature) {
-    // TODO: Implement solution
+func \(funcSignature) {
+    // implement solution
 }
 """
 
@@ -83,7 +83,7 @@ final class Q\(number)Tests: XCTestCase {
 
 let testSwiftTemplate = """
 import Testing
-import MyAlgorithms
+@testable import MyAlgorithms
 
 @Test func \(testFuncName)() {
   // Test logic goes here.
